@@ -5,6 +5,7 @@ import { getAiResponse } from "./lib/cohereApi";
 import WaterCharts from "./components/WaterCharts";
 import AiButtons from "./components/AiButtons";
 import WaterQualityCard from "./components/WaterQualityChart";
+import Navbar from "./components/NavBar";
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -166,15 +167,13 @@ export default function WaterAdvisorApp() {
   ] : [];
 
   return (
+    <>
+    <Navbar turbidity={turbidity}/>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #e0f7fa, #80deea)", padding: "20px" }}>
       <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#01579b", marginBottom: "20px", textAlign: "center" }}>
         💧 Smart Water Quality Advisor
       </h1>
-        <WeatherContaminationButton
-          
-          
-          turbidity={turbidity}
-        />
+ 
 
       <div style={{ background: "white", padding: "25px", borderRadius: "16px", boxShadow: "0 6px 20px rgba(0,0,0,0.15)", width: "100%", maxWidth: "900px" }}>
         
@@ -274,5 +273,6 @@ export default function WaterAdvisorApp() {
         )}
       </div>
     </div>
+    </>
   );
 }

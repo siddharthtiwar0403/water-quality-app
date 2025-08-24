@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import WeatherContaminationModal from "./WeatherContaminationButton";
 
-const Navbar = () => {
+const Navbar = ({turbidity}) => {
   return (
     <nav
       style={{
@@ -28,6 +29,9 @@ const Navbar = () => {
         <Link href="/about" style={{ color: "white", textDecoration: "none", fontWeight: 500 }}>
           About
         </Link>
+        <div>
+            <WeatherContaminationModal turbidity={turbidity}/>
+        </div>
       </div>
     </nav>
   );
