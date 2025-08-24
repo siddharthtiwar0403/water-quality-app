@@ -1,37 +1,46 @@
 import Link from "next/link";
 import React from "react";
 import WeatherContaminationModal from "./WeatherContaminationButton";
+import { Droplet } from "lucide-react";
 
-const Navbar = ({turbidity}) => {
+const Navbar = ({ turbidity }) => {
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "12px 24px",
-        backgroundColor: "#01579b",
-        color: "white",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-      }}
-    >
-      <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Water Dashboard</div>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 500 }}>
+    <nav className="flex justify-between items-center px-6 py-3 bg-sky-900 text-white shadow-md">
+      {/* Logo */}
+      <div className="flex items-center gap-2 text-2xl font-bold">
+        <Droplet className="w-7 h-7 text-sky-400" />
+        <span>AquaCheck</span>
+      </div>
+
+      {/* Nav Links + Button */}
+      <div className="flex items-center gap-6">
+        <Link
+          href="/"
+          className="hover:text-sky-300 font-medium transition-colors"
+        >
           Home
         </Link>
-        <Link href="/charts" style={{ color: "white", textDecoration: "none", fontWeight: 500 }}>
+        <Link
+          href="/charts"
+          className="hover:text-sky-300 font-medium transition-colors"
+        >
           Charts
         </Link>
-        <Link href="/ai" style={{ color: "white", textDecoration: "none", fontWeight: 500 }}>
+        <Link
+          href="/ai"
+          className="hover:text-sky-300 font-medium transition-colors"
+        >
           AI Analysis
         </Link>
-        <Link href="/about" style={{ color: "white", textDecoration: "none", fontWeight: 500 }}>
+        <Link
+          href="/about"
+          className="hover:text-sky-300 font-medium transition-colors"
+        >
           About
         </Link>
-        <div>
-            <WeatherContaminationModal turbidity={turbidity}/>
-        </div>
+
+        {/* Contamination Modal Trigger */}
+        <WeatherContaminationModal turbidity={turbidity} />
       </div>
     </nav>
   );

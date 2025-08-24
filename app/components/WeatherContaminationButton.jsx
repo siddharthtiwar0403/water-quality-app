@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Droplets } from "lucide-react";
 
 const LOOKAHEAD_HOURS = 3;
 
@@ -135,17 +136,18 @@ export default function WeatherContaminationModal({ turbidity }) {
   return (
     <>
       {/* Button that opens modal */}
-      <button
-        onClick={() => setIsOpen(true)}
-        disabled={turbidity === ""}
-        className={`px-4 py-2 rounded-lg font-medium text-white ${
-          turbidity === "" 
-            ? "bg-gray-400 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-700"
-        }`}
-      >
-        Check Contamination Risk
-      </button>
+     <button
+  onClick={() => setIsOpen(true)}
+  disabled={turbidity === ""}
+  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white transition ${
+    turbidity === "" 
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-blue-600 hover:bg-blue-700"
+  }`}
+>
+  <Droplets className="w-5 h-5" />
+  Check Contamination Risk
+</button>
 
       {/* Modal */}
       {isOpen && (

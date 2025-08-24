@@ -1,11 +1,11 @@
-// components/AiButtons.js
 import React from "react";
+import { Shield, Droplets, Wallet } from "lucide-react"; 
 
 const AiButtons = ({ handleAiRequest, isLoading, activeAiButton }) => {
   const buttons = [
-    { type: "prevention", color: "#4caf50", label: "AI Prevention", icon: "🛡️" },
-    { type: "filtration", color: "#2196f3", label: "AI Filtration", icon: "💧" },
-    { type: "cost", color: "#ff9800", label: "AI Cost Analysis", icon: "💰" },
+    { type: "prevention", color: "#4caf50", label: "AI Prevention", icon: <Shield size={18} /> },
+    { type: "filtration", color: "#2196f3", label: "AI Filtration", icon: <Droplets size={18} /> },
+    { type: "cost", color: "#ff9800", label: "AI Cost Analysis", icon: <Wallet size={18} /> },
   ];
 
   return (
@@ -41,9 +41,14 @@ const AiButtons = ({ handleAiRequest, isLoading, activeAiButton }) => {
               fontWeight: 600,
               cursor: isLoading ? "not-allowed" : "pointer",
               border: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
             }}
           >
-            {isLoading && activeAiButton === btn.type ? "⏳" : btn.icon} {btn.label}
+            {isLoading && activeAiButton === btn.type ? "⏳ Getting AI Response..." : btn.icon}
+            {btn.label}
           </button>
         ))}
       </div>

@@ -1,5 +1,6 @@
 // WaterQualityCard.jsx
 import React from "react";
+import { CheckCircle, XCircle } from "lucide-react";
 
 const WaterQualityCard = ({ waterQuality, advice }) => {
   const getBackgroundColor = () => {
@@ -40,21 +41,33 @@ const WaterQualityCard = ({ waterQuality, advice }) => {
         </span>
       </h2>
 
-      <ul style={{ listStyleType: "none", paddingLeft: "0", color: "#000" }}>
-        {advice.map((tip, index) => (
-          <li
-            key={index}
-            style={{
-              marginBottom: "8px",
-              padding: "8px",
-              borderRadius: "5px",
-              background: tip.includes("✅") ? "#e8f5e9" : "#ffebee",
-            }}
-          >
-            {tip}
-          </li>
-        ))}
-      </ul>
+    <ul style={{ listStyleType: "none", paddingLeft: "0", color: "#000" }}>
+  {advice.map((tip, index) => {
+    const isPositive = tip.includes("✅");
+
+    return (
+      <li
+        key={index}
+        style={{
+          marginBottom: "8px",
+          padding: "8px",
+          borderRadius: "5px",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          background: isPositive ? "#e8f5e9" : "#ffebee",
+        }}
+      >
+        {isPositive ? (
+          <CheckCircle size={18} color="#2e7d32" />
+        ) : (
+          <XCircle size={18} color="#c62828" />
+        )}
+        <span>{tip.replace("✅", "").replace("❌", "")}</span>
+      </li>
+    );
+  })}
+</ul>
     </div>
   );
 };

@@ -6,6 +6,8 @@ import WaterCharts from "./components/WaterCharts";
 import AiButtons from "./components/AiButtons";
 import WaterQualityCard from "./components/WaterQualityChart";
 import Navbar from "./components/NavBar";
+import { CheckCircle } from "lucide-react";
+import { Droplet } from "lucide-react";
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -170,9 +172,10 @@ export default function WaterAdvisorApp() {
     <>
     <Navbar turbidity={turbidity}/>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #e0f7fa, #80deea)", padding: "20px" }}>
-      <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#01579b", marginBottom: "20px", textAlign: "center" }}>
-        💧 Smart Water Quality Advisor
-      </h1>
+      <h1 className="text-4xl font-bold text-sky-900 mb-6 text-center flex items-center justify-center gap-2">
+      <Droplet className="w-8 h-8 text-sky-600" />
+      Smart Water Quality Advisor
+    </h1>
  
 
       <div style={{ background: "white", padding: "25px", borderRadius: "16px", boxShadow: "0 6px 20px rgba(0,0,0,0.15)", width: "100%", maxWidth: "900px" }}>
@@ -221,9 +224,13 @@ export default function WaterAdvisorApp() {
           </div>
         </div>
 
-        <button onClick={handleCheck} style={{ background: "#0288d1", color: "white", padding: "12px", borderRadius: "10px", width: "100%", fontWeight: "600", marginTop: "10px", cursor: "pointer", border: "none" }}>
-          ✅ Analyze Water Quality
-        </button>
+       <button
+  onClick={handleCheck}
+  className="w-full mt-2 flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-xl shadow-md transition duration-200"
+>
+  <CheckCircle size={18} />
+  Analyze Water Quality
+</button>
 
         {advice.length > 0 && (
           <>
