@@ -1,4 +1,3 @@
-// components/WaterCharts.js
 import React from "react";
 import {
   ResponsiveContainer,
@@ -24,7 +23,6 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
         marginTop: "30px"
       }}
     >
-      {/* Parameter Values vs Safe Limits */}
       <div>
         <h3
           style={{

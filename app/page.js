@@ -5,6 +5,7 @@ import { getAiResponse } from "./lib/cohereApi";
 import WaterCharts from "./components/WaterCharts";
 import AiButtons from "./components/AiButtons";
 import WaterQualityCard from "./components/WaterQualityChart";
+import DiseaseScreen from "./components/DiseaseScreen";
 import Navbar from "./components/NavBar";
 import { CheckCircle } from "lucide-react";
 import { Droplet } from "lucide-react";
@@ -170,10 +171,11 @@ export default function WaterAdvisorApp() {
 
   return (
     <>
-    <Navbar turbidity={turbidity}/>
+    
+    <Navbar turbidity={turbidity} tds={tds} ph={ph}/>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #e0f7fa, #80deea)", padding: "20px" }}>
       <h1 className="text-4xl font-bold text-sky-900 mb-6 text-center flex items-center justify-center gap-2">
-      <Droplet className="w-8 h-8 text-sky-600" />
+      <Droplet  className="w-8 h-8 text-sky-600" />
       Smart Water Quality Advisor
     </h1>
  

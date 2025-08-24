@@ -4,11 +4,7 @@ import React from "react";
 import Navbar from "../components/NavBar";
 
 const AboutSection = () => {
-  const stats = [
-    { value: "10K+", label: "Users Empowered" },
-    { value: "97%", label: "Accuracy Rate" },
-    { value: "24/7", label: "Monitoring" },
-  ];
+
 
   const features = [
     {
@@ -81,22 +77,7 @@ const AboutSection = () => {
           ))}
         </div>
 
-        {/* Impact Stats */}
-        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-cyan-100 rounded-xl py-8 px-6">
-          <h3 className="text-xl font-semibold text-blue-900 mb-8">
-            Our Impact
-          </h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {stats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-cyan-600">
-                  {s.value}
-                </div>
-                <div className="text-gray-700 mt-2">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+      
       </div>
     </section>
     </>
