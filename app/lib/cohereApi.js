@@ -31,7 +31,7 @@ Provide a point-wise cost breakdown for a suitable purification system.
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.COHERE_API_KEY}`
+        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_COHERE_AI}`
       },
       body: JSON.stringify({
         model: "command-r-plus",
